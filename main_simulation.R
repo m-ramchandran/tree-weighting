@@ -605,7 +605,9 @@ multistudysim_tot <- function(modfit, modpred, good, bad, val, edat_orig, simtyp
                                     mean((cury - ss_int)^2), mean((cury - stack_lasso)^2), mean((cury - ss_lasso)^2), 
                                     mean((cury - stack_ridge)^2), mean((cury - ss_ridge)^2)))}
   }
-  
+  #Uncomment if want to return percent change from the merged:
+  #outmat <- (outmat - outmat[,1])/outmat[,1]*100
+
 
   return(list(means = colMeans(outmat), coefs_list = coefs_of_interest, variance_inter = variance_inter, varimpsumm_mods = varimpsumm_mods))
 }
