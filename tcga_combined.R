@@ -1,7 +1,4 @@
 #Split the TCGA dataset into 5: 4 for training, 1 for testing 
-install.packages("randomForest", repos="http://cran.r-project.org", dependencies = TRUE)
-#install.packages("MLmetrics", repos="http://cran.r-project.org", dependencies = TRUE)
-install.packages("glmnet", repos="http://cran.r-project.org", dependencies = TRUE)
 library(MLmetrics)
 library(randomForest)
 library(curatedOvarianData)
@@ -463,8 +460,6 @@ multistudysim_tot <- function(modfit, modpred, good, bad, val, edat_orig, simtyp
   return(list(means = colMeans(outmat), zeros_summary = zeros_summary, coefs_list = coefs_of_interest))
 }
 
-#test
-#tm <- multistudysim_tot(modfit = randomforestfit, modpred = randomforestpredict, good = .25, bad = 15, val = 7.5, edat_orig, simtype = "normal", complexity = 10, numtree = 500, bin = FALSE, ninter = 0, icoefs = c(4.4, -1.8), setnc = TRUE, treeweight = TRUE)
 
 rep_multistudy <- function(reps, modfit, modpred, good, bad, val, edat_orig, simtype, complexity, numtree, bin, ninter, icoefs, setnc, treeweight, allmeansfile, coeffile){
   ptm <- proc.time()
@@ -508,7 +503,6 @@ rep_multistudy <- function(reps, modfit, modpred, good, bad, val, edat_orig, sim
               means_tree = means_tree, means_forest = means_forest, sds_tree = sds_tree, sds_forest = sds_forest)) 
 }
 
-#rep_test <- rep_multistudy(reps = 5, modfit = randomforestfit, modpred = randomforestpredict, good = 0, bad = 0, val = 0, edat_orig, simtype = "normal", complexity = 10, numtree = 10, bin = FALSE, ninter = 0, icoefs = c(4.4, -1.8), setnc = TRUE, treeweight = TRUE, allmeansfile = "", coeffile = "")
 
 #var_list: a vector of coefficients to vary levels of (heterogeneity or interacction strength)
 #het = TRUE if level heterogeneity being varied, FALSE if interaction strength being varied
