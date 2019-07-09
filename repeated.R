@@ -1,9 +1,4 @@
-#create datasets by repeating the covariate values for one 10 times; simulates what happens when
-#there is no heterogeneity. 
-#idea: merged should do better than any of the ensembling approaches
-install.packages("randomForest", repos="http://cran.r-project.org", dependencies = TRUE)
-#install.packages("MLmetrics", repos="http://cran.r-project.org", dependencies = TRUE)
-install.packages("glmnet", repos="http://cran.r-project.org", dependencies = TRUE)
+#create datasets by repeating the covariate values for one 10 times
 library(MLmetrics)
 library(randomForest)
 library(curatedOvarianData)
