@@ -203,19 +203,3 @@ vi_h1 <- vary_init(reps = 100, var_list = inter_ls, edat_orig, ndat = length(eda
 #h2: level = 10
 vi_h2 <- vary_init(reps = 100, var_list = inter_ls, edat_orig, ndat = length(edat_orig), nvar = 100, simtype = "nonl", ninter = 4, good = .25, bad = 10, val = 5, icoefs = c(4.4, -1.8), setnc = TRUE, bin = FALSE)
 
-
-#plot
-#vi_data <- as.data.frame(cbind(inter_ls, vi_c1[,1], vi_c1[,1] - (1.96*vi_c1[,2]/10), vi_c1[,1] + (1.96*vi_c1[,2]/10)))
-vi_data <- as.data.frame(cbind(inter_ls,vi_c1[,1], vi_h1[,1], vi_h2[,1]))
-vi.melted <- melt(vi_data, id = "inter_ls")
-vi.ci <- as.data.frame(cbind(inter_ls, vi_c1[,1] - (1.96*vi_c1[,2]/10), vi_c1[,1] + (1.96*vi_c1[,2]/10)))
-
-vi_plot <- ggplot(data = vi.melted, aes(x = inter_ls, y = value,  color = variable)) +
-  geom_point() + stat_smooth(se = F) + theme_classic() + 
-  xlab("Interaction Strength") + ylab("% variation") + labs(title = "% variation in the outcome explained by interactions") + 
-  geom_ribbon(data=vi.ci,aes(x=inter_ls,ymin=V2,ymax=V3),fill="slateblue2",alpha=0.2, inherit.aes = FALSE) + 
-  theme(axis.title=element_text(size=rel(1.3)), axis.text=element_text(size=rel(1.3)), plot.title = element_text(size = rel(1.3)), legend.text=element_text(size=rel(1.3)), legend.title=element_text(size=rel(1.5)), legend.position="bottom") +
-  scale_color_manual(values=c("sienna2","darkcyan", "midnightblue"), labels = c("1", "4", "10"), name="Heterogeneity Level")
-  #scale_color_manual(values=c("#00AEDB","#00AFAF","#00B084"), labels = c("1", "4", "10"), name="Heterogeneity Level")
-  
-show(vi_plot)
