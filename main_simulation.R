@@ -794,6 +794,3 @@ case1_scen2 <- vary_levels(reps = 100, het = FALSE, var_list = inter_ls, modfit 
 
 #(c) Varying level of heterogeneity, no interactions: 
 case1_scen3 <- vary_levels(reps = 100, het = TRUE, var_list = het_ls, modfit = randomforestfit, modpred = randomforestpredict, good = .25, bad = 1, val = .4, edat_orig, simtype = "nonl", complexity = 10, numtree = 10, bin = TRUE, ninter = 0, icoefs = c(4.4, -1.8), setnc = TRUE, allmeanstr = "allmeans_c1s4_", coefstr = "coefs_c1s4_", meanstr = "means_c1s4",  zerosstr = "zeros_c1s4", sdstr = "sds_c1s4")
-
-
-#These simulations are used to create Figure 2, Table 1, 
