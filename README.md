@@ -1,5 +1,5 @@
 # tree-weighting
-Supplementary materical and code to replicate analyses from "Tree-weighting for multi-study ensemble learners"
+Supplementary material and code to replicate analyses from "Tree-weighting for multi-study ensemble learners"
 
 For documentation on inputs/outputs for commonly used functions throughout, see main_simulation.R
 
